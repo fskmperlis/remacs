@@ -1,0 +1,45 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS thumbnails and metadata
+._*
+.Spotlight-V100
+.Trashes
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+.out/
+.cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Package manager files
+.pnpm-store/
+
+# Temporary files
+tmp/
+temp/
+
+# Backup files
+*.bak
