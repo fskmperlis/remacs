@@ -16,296 +16,95 @@
     />
     <meta name="author" content="Rizauddin Saian" />
 
-    <style>
-      :root {
-        --primary: #4b0082;
-        --primary-dark: #2f0052;
-        --accent: #f5b400;
-        --bg: #f7f7fb;
-        --card: #ffffff;
-        --text: #222222;
-        --muted: #666666;
-        --border: #dddddd;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      a {
-        color: var(--primary);
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .site-wrapper {
-        max-width: 1100px;
-        margin: 0 auto;
-        background: var(--card);
-        min-height: 100vh;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-      }
-
-      header {
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-dark)
-        );
-        color: white;
-        padding: 36px 24px;
-        text-align: center;
-      }
-
-      header h1 {
-        margin: 0;
-        font-size: 2rem;
-        letter-spacing: 0.5px;
-      }
-
-      header p {
-        margin: 8px 0 0;
-        font-size: 1rem;
-        opacity: 0.9;
-      }
-
-      main {
-        padding: 32px 24px;
-      }
-
-      .page-title {
-        margin-top: 0;
-        font-size: 2rem;
-        color: var(--primary-dark);
-        border-bottom: 4px solid var(--accent);
-        padding-bottom: 10px;
-      }
-
-      .nav-links {
-        margin: 20px 0 28px;
-        padding: 16px;
-        background: #faf7ff;
-        border: 1px solid #e4d8f5;
-        border-radius: 10px;
-      }
-
-      .nav-links a {
-        display: inline-block;
-        margin: 4px 8px 4px 0;
-        font-weight: 600;
-      }
-
-      .remacs-links {
-        margin: 20px 0;
-        padding: 16px;
-        background: #fffaf0;
-        border-left: 5px solid var(--accent);
-        border-radius: 8px;
-      }
-
-      .event-info {
-        margin: 24px 0;
-        padding: 20px;
-        background: #f9f9f9;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-      }
-
-      section {
-        margin-top: 36px;
-      }
-
-      h2 {
-        color: var(--primary-dark);
-        font-size: 1.5rem;
-        margin-bottom: 14px;
-      }
-
-      h3 {
-        color: var(--primary);
-        font-size: 1.1rem;
-        margin-top: 24px;
-        margin-bottom: 8px;
-      }
-
-      ul {
-        padding-left: 24px;
-      }
-
-      .programme-list > li {
-        margin-bottom: 14px;
-      }
-
-      .time {
-        font-weight: 700;
-        color: var(--primary-dark);
-      }
-
-      figure {
-        margin: 20px 0;
-      }
-
-      figure img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-      }
-
-      .committee-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 18px;
-        margin-top: 20px;
-      }
-
-      .committee-card {
-        padding: 18px;
-        background: #fafafa;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-      }
-
-      .committee-card h3 {
-        margin-top: 0;
-      }
-
-      .committee-card ul {
-        margin-bottom: 0;
-      }
-
-      footer {
-        background: #222222;
-        color: white;
-        padding: 28px 24px;
-      }
-
-      footer h2 {
-        color: white;
-        font-size: 1.2rem;
-        margin-top: 0;
-      }
-
-      footer p {
-        margin: 8px 0;
-        color: #eeeeee;
-      }
-
-      .copyright {
-        margin-top: 20px;
-        padding-top: 16px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        font-size: 0.9rem;
-        color: #dddddd;
-      }
-
-      .back-to-top {
-        display: inline-block;
-        margin-top: 24px;
-        font-size: 0.95rem;
-      }
-
-      @media (max-width: 600px) {
-        header {
-          padding: 28px 18px;
-        }
-
-        header h1 {
-          font-size: 1.5rem;
-        }
-
-        main {
-          padding: 24px 18px;
-        }
-
-        .page-title {
-          font-size: 1.6rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="/remacs/style.css" />
+    <link rel="icon" href="/remacs/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
     <div class="site-wrapper" id="top">
       <header>
         <h1 class="site-title">
-          <a
-            href="https://fskmperlis.uitm.edu.my/"
-            style="color: #ffffff; text-decoration: none"
-          >
+          <a href="https://fskmperlis.uitm.edu.my/">
             Fakulti Sains Komputer dan Matematik
           </a>
         </h1>
+
         <p>Universiti Teknologi MARA, Cawangan Perlis</p>
       </header>
 
       <main>
-        <a href="/remacs/2/"><h1 class="page-title">REMACS 2.0</h1></a>
+        <h1 class="page-title">
+          <a href="/remacs/2/">REMACS 2.0</a>
+        </h1>
 
         <nav class="nav-links" aria-label="Navigasi halaman">
-          <a href="#aturcara">Aturcara</a>| <a href="#booth">Nombor Booth</a>|
-          <a href="#layout">Susun Atur</a>|
-          <a
-            href="https://drive.google.com/file/d/1GarxpuQEGUCQ6FPTlwtvCjkvcHw9KO0v/view?usp=drivesdk"
-            target="_blank"
-            rel="noopener"
-            >Buku Program</a
-          >|
+          <div class="nav-group">
+            <a href="#aturcara">Aturcara</a>
+            <a href="#booth">Nombor Booth</a>
+            <a href="#layout">Susun Atur</a>
 
-          <a
-            href="https://www.facebook.com/media/set/?set=a.653891003203945&type=3"
-            target="_blank"
-            rel="noopener"
-            >Galeri Gambar</a
-          >|
-          <a href="https://fskmperlis.uitm.edu.my/remacs-proceedings/">
-            Proceedings </a
-          ><br />
-          Penyelia/Penilai:
-          <a
-            href="https://drive.google.com/file/d/1q_0YbU-gaI_E1uKcPvu0GsvsNQSbFYpH/view?usp=sharing"
-            target="_blank"
-            rel="noopener"
-            >CS240</a
-          >
-          |
-          <a
-            href="https://drive.google.com/file/d/1jXcMnhzF9VsMqyHZc2SarVikmzCySUBA/view?usp=sharing"
-            target="_blank"
-            rel="noopener"
-            >CS251</a
-          >|
-          <a
-            href="https://drive.google.com/file/d/1YagbRWZhk-M7R1EjGuxUgZkYJaSQDnl-/view?usp=sharing"
-            target="_blank"
-            rel="noopener"
-            >CS248</a
-          >|
+            <a
+              href="https://drive.google.com/file/d/1GarxpuQEGUCQ6FPTlwtvCjkvcHw9KO0v/view?usp=drivesdk"
+              target="_blank"
+              rel="noopener"
+            >
+              Buku Program
+            </a>
+
+            <a
+              href="https://www.facebook.com/media/set/?set=a.653891003203945&type=3"
+              target="_blank"
+              rel="noopener"
+            >
+              Galeri Gambar
+            </a>
+
+            <a href="https://fskmperlis.uitm.edu.my/remacs-proceedings/">
+              Proceedings
+            </a>
+          </div>
+
+          <div class="nav-group nav-group-secondary">
+            <span class="nav-label">Penyelia/Penilai:</span>
+
+            <a
+              href="https://drive.google.com/file/d/1q_0YbU-gaI_E1uKcPvu0GsvsNQSbFYpH/view?usp=sharing"
+              target="_blank"
+              rel="noopener"
+            >
+              CS240
+            </a>
+
+            <a
+              href="https://drive.google.com/file/d/1jXcMnhzF9VsMqyHZc2SarVikmzCySUBA/view?usp=sharing"
+              target="_blank"
+              rel="noopener"
+            >
+              CS251
+            </a>
+
+            <a
+              href="https://drive.google.com/file/d/1YagbRWZhk-M7R1EjGuxUgZkYJaSQDnl-/view?usp=sharing"
+              target="_blank"
+              rel="noopener"
+            >
+              CS248
+            </a>
+          </div>
         </nav>
 
         <div class="remacs-links">
           <strong>REMACS:</strong>
-          1.0 :
-          <a href="/remacs/2">2.0</a> : 3.0 : <a href="/remacs/4">4.0</a> :
-          <a href="/remacs/5">5.0</a> : <a href="/remacs/6">6.0</a> :
-          <a href="/remacs/7">7.0</a> : <a href="/remacs/8">8.0</a> :
-          <a href="/remacs/9">9.0</a>
+
+          <span>1.0</span>
+          <span>2.0</span>
+          <span>3.0</span>
+          <a href="/remacs/4/">4.0</a>
+          <a href="/remacs/5/">5.0</a>
+          <a href="/remacs/6/">6.0</a>
+          <a href="/remacs/7/">7.0</a>
+          <a href="/remacs/8/">8.0</a>
+          <a href="/remacs/9/">9.0</a>
         </div>
 
         <div class="event-info">
