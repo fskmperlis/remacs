@@ -302,7 +302,7 @@
         /* --- COMMITTEE CARDS --- */
         .committee-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
@@ -332,7 +332,32 @@
             font-size: 0.95rem;
         }
         
-        .committee-card li { margin-bottom: 0.5rem; }
+        .committee-card li { 
+            margin-bottom: 0.5rem; 
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .committee-card li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .committee-card li span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            margin-top: 2px;
+        }
+
+        .committee-helper {
+            font-style: italic;
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            margin-top: 10px;
+            display: block;
+        }
 
         /* --- DOWNLOADS & LINKS --- */
         .links-grid {
@@ -489,7 +514,7 @@
 
         /* --- RESPONSIVE --- */
         @media screen and (max-width: 768px) {
-            .nav-links { display: none; /* In a real app, implement a hamburger menu here */ }
+            .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
             .info-grid { grid-template-columns: 1fr; margin-top: 2rem; }
             .timeline::after { left: 31px; }
@@ -615,55 +640,168 @@
         <section id="jawatankuasa">
             <h2>Jawatankuasa</h2>
             <div class="committee-grid">
+                
                 <div class="committee-card">
-                    <h3>Penaung & Penasihat</h3>
+                    <h3>Penaung</h3>
                     <ul>
-                        <li><strong>Prof. Madya Dr. Ahmad Nizan Mat Noor</strong><br>Rektor UiTM Cawangan Perlis</li>
-                        <li><strong>Prof. Madya Dr. Azrul bin Abdullah</strong><br>Timbalan Rektor HEA</li>
-                        <li><strong>Dr. Nur Fatihah Fauzi</strong><br>KPP FSKM</li>
+                        <li>Prof. Madya Dr. Ahmad Nizan Mat Noor <span>Rektor UiTM Cawangan Perlis</span></li>
                     </ul>
                 </div>
+
                 <div class="committee-card">
-                    <h3>Pengurusan Utama</h3>
+                    <h3>Penasihat</h3>
                     <ul>
-                        <li><strong>Pengarah:</strong> Dr. Nur Khairani Kamarudin</li>
-                        <li><strong>Timb. Pengarah:</strong> Diana Sirmayunie Mohd Nasir</li>
-                        <li><strong>Setiausaha:</strong> Norpah Mahat</li>
-                        <li><strong>Bendahari:</strong> Sharifah Fhahriyah Syed Abas, Mohd Nizam Osman</li>
+                        <li>Prof. Madya Dr. Azrul bin Abdullah <span>Timbalan Rektor HEA</span></li>
+                        <li>Dr. Nur Fatihah Fauzi <span>KPP FSKM</span></li>
                     </ul>
                 </div>
+
                 <div class="committee-card">
-                    <h3>Penyelaras Media & Pameran</h3>
+                    <h3>Pengarah Program</h3>
                     <ul>
-                        <li><strong>Laman Web:</strong> Prof. Madya Ts. Dr. Rizauddin Saian</li>
-                        <li><strong>Video/Montaj:</strong> Ros Syamsul Hamid</li>
-                        <li><strong>Pameran:</strong> Dr. Norfiza Ibrahim, Ts. Dr Siti Zulaiha Ahmad & Pasukan</li>
+                        <li>Dr. Nur Khairani Kamarudin</li>
                     </ul>
                 </div>
+
                 <div class="committee-card">
-                    <h3>Logistik & Teknikal</h3>
+                    <h3>Timbalan Pengarah Program</h3>
+                    <ul>
+                        <li>Diana Sirmayunie Mohd Nasir</li>
+                    </ul>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Setiausaha & Timb. Setiausaha</h3>
+                    <ul>
+                        <li>Norpah Mahat <span>Setiausaha</span></li>
+                        <li>Nurul Hidayah Ahmad Zukri <span>Timbalan Setiausaha</span></li>
+                    </ul>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Bendahari</h3>
+                    <ul>
+                        <li>Sharifah Fhahriyah Syed Abas</li>
+                        <li>Mohd Nizam Osman</li>
+                    </ul>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Laman Sesawang & Media Sosial</h3>
+                    <ul>
+                        <li>Prof. Madya Ts. Dr. Rizauddin Saian</li>
+                        <li>Ros Syamsul Hamid <span>(Video dan Montaj)</span></li>
+                    </ul>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Pameran</h3>
+                    <ul>
+                        <li>Dr. Norfiza Ibrahim</li>
+                        <li>Ts. Dr Siti Zulaiha Ahmad</li>
+                        <li>Dr. Nadia Abdul Wahab</li>
+                        <li>Dr. Mahfudzah Othman</li>
+                        <li>Iman Hazwam Abd Halim</li>
+                        <li>Dr. Nur Fazliana Rahim</li>
+                        <li>Dr. Huda Zuhrah binti Ab Halim</li>
+                    </ul>
+                    <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Pendaftaran</h3>
+                    <ul>
+                        <li>Siti Sarah Md Alias</li>
+                        <li>Nor Hayati Shafii</li>
+                    </ul>
+                    <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Juri</h3>
+                    <ul>
+                        <li>Suzanawati Abu Hasan</li>
+                        <li>Dr. Nurul Atiqah Romli</li>
+                    </ul>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Teknikal dan Logistik</h3>
                     <ul>
                         <li>Mohd Faris Mohd Fuzi</li>
                         <li>Mohd Halimi Ab Hamid</li>
                         <li>Mohd Hasbullah Mohd Razali</li>
                         <li>Khairu Azlan Abd Aziz</li>
+                        <li>Muhammad Nabil Fikri Jamaluddin</li>
+                        <li>Ts. Noorfaizalfarid Mohd Noor</li>
                     </ul>
+                    <span class="committee-helper">* Dibantu oleh 6 pelajar</span>
                 </div>
+
                 <div class="committee-card">
-                    <h3>Penyelaras Juri & Pendaftaran</h3>
+                    <h3>Penyelaras Majlis Perasmian Penutup & Cenderahati</h3>
                     <ul>
-                        <li><strong>Juri:</strong> Suzanawati Abu Hasan, Dr. Nurul Atiqah Romli</li>
-                        <li><strong>Pendaftaran:</strong> Siti Sarah Md Alias, Nor Hayati Shafii</li>
+                        <li>Romiza Md Nor</li>
+                        <li>Balkiah Mokhtar</li>
                     </ul>
+                    <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
                 </div>
+
                 <div class="committee-card">
-                    <h3>Protokol & Majlis</h3>
+                    <h3>Penyelaras Sijil</h3>
                     <ul>
-                        <li><strong>Perasmian:</strong> Romiza Md Nor, Balkiah Mokhtar</li>
-                        <li><strong>Buku Program:</strong> Muhammad Hafiz Ismail & Pasukan</li>
-                        <li><strong>Sijil:</strong> Anas Fathul Ariffin, Dr. Ahmad Yusri Dak</li>
+                        <li>Anas Fathul Ariffin</li>
+                        <li>Dr. Ahmad Yusri Dak</li>
+                    </ul>
+                    <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Buku Program</h3>
+                    <ul>
+                        <li>Muhammad Hafiz Ismail</li>
+                        <li>Nor Arzami Othman</li>
+                        <li>Ray Adderley Jm. Gining</li>
+                        <li>Izleen Ibrahim</li>
+                    </ul>
+                    <span class="committee-helper">* Dibantu oleh 4 AJK pelajar</span>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Jamuan</h3>
+                    <ul>
+                        <li>Nora Yanti Che Jan</li>
+                        <li>Ku Azlina Ku Akil</li>
+                    </ul>
+                    <span class="committee-helper">* Dibantu oleh 4 AJK pelajar</span>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Penajaan</h3>
+                    <ul>
+                        <li>Abdul Hapes Mohammed</li>
+                        <li>Alif Faisal Ibrahim</li>
                     </ul>
                 </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Jemputan Industri/Luar</h3>
+                    <ul>
+                        <li>Naemah Abdul Wahab</li>
+                        <li>Raihana Zainordin</li>
+                        <li>Mohamad Najib Mohamad Fadzil</li>
+                    </ul>
+                    <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
+                </div>
+
+                <div class="committee-card">
+                    <h3>Penyelaras Rekabentuk Digital</h3>
+                    <ul>
+                        <li>Muhammad Arif Hashim</li>
+                    </ul>
+                    <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
+                </div>
+
             </div>
         </section>
 
