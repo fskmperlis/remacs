@@ -41,6 +41,7 @@
             color: var(--text-main);
             background-color: var(--bg-main);
             line-height: 1.6;
+            overflow-x: hidden; /* Mencegah scroll melintang */
         }
 
         h1, h2, h3, h4 {
@@ -89,12 +90,41 @@
 
         .nav-links a {
             color: #cbd5e1;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
+            padding: 0.5rem;
         }
 
         .nav-links a:hover, .nav-links a.active {
             color: var(--accent-color);
+        }
+
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001; /* Pastikan ia berada di atas menu */
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Animasi Hamburger ke 'X' */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
         }
 
         /* --- HERO SECTION --- */
@@ -377,6 +407,7 @@
             align-items: center;
             gap: 10px;
             box-shadow: var(--shadow);
+            text-align: center;
         }
 
         .btn-link:hover {
@@ -512,16 +543,85 @@
             color: var(--primary-color);
         }
 
-        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE / MOBILE ADAPTATION --- */
         @media screen and (max-width: 768px) {
-            .nav-links { display: none; }
+            /* Tunjukkan Hamburger, Ubah Navigasi */
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem 0;
+                gap: 1.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+                
+                /* Sembunyikan dengan animasi leret (slide up) */
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+                z-index: -1; 
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                z-index: 999;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
+            /* Ubahsaiz Tajuk */
             .hero h1 { font-size: 2.5rem; }
-            .info-grid { grid-template-columns: 1fr; margin-top: 2rem; }
+            .hero h2 { font-size: 1.2rem; }
+            section h2 { font-size: 2rem; }
+
+            /* Kotak Info ke 1 lajur */
+            .info-grid { 
+                grid-template-columns: 1fr; 
+                margin-top: 2rem; 
+                padding: 1.5rem;
+            }
+
+            /* Betulkan Garis Masa (Timeline) untuk Mudah Alih */
             .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item::before { left: 60px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent white transparent transparent; }
+            .timeline-item { 
+                width: 100%; 
+                padding-left: 70px; 
+                padding-right: 25px; 
+            }
+            .timeline-item::before { 
+                left: 60px; 
+                border: medium solid var(--bg-card); 
+                border-width: 10px 10px 10px 0; 
+                border-color: transparent var(--bg-card) transparent transparent; 
+            }
             .left::after, .right::after { left: 21px; }
             .right { left: 0%; }
+            .left::before {
+                right: auto;
+                left: 60px;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--bg-card) transparent transparent;
+            }
+
+            /* Jawatankuasa Grid */
+            .committee-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-link {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -531,7 +631,15 @@
     <!-- NAVIGATION -->
     <nav class="navbar">
         <a href="#" class="navbar-brand">REMACS<span>9.0</span></a>
-        <div class="nav-links">
+        
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-links" id="nav-links">
             <a href="#info">Info</a>
             <a href="#aturcara">Aturcara</a>
             <a href="#jawatankuasa">Jawatankuasa</a>
@@ -914,6 +1022,23 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // Hamburger Menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
         // Accordion functionality
         const accordions = document.querySelectorAll('.accordion-btn');
         
