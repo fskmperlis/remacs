@@ -32,12 +32,15 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-main);
             background-color: var(--bg-main);
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
         h1, h2, h3, h4 {
@@ -465,13 +468,23 @@
             justify-content: center;
             align-items: center;
             font-weight: bold;
+            font-size: 1.2rem;
             box-shadow: var(--shadow);
             z-index: 1000;
-            opacity: 0.8;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.3s ease;
         }
-        .back-to-top:hover {
+        .back-to-top.show {
+            opacity: 0.8;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .back-to-top.show:hover {
             opacity: 1;
             transform: translateY(-3px);
+            color: var(--primary-color);
         }
 
         /* --- RESPONSIVE --- */
@@ -779,6 +792,17 @@
                     panel.style.padding = "1rem 1.5rem";
                 }
             });
+        });
+
+        // Back to Top functionality
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
         });
     </script>
 </body>
