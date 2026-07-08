@@ -1,1128 +1,1237 @@
 <!doctype html>
 <html lang="ms">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>REMACS 9.0 | Fakulti Sains Komputer dan Matematik</title>
-    <meta name="description" content="REMACS 9.0, Fakulti Sains Komputer dan Matematik, UiTM Cawangan Perlis" />
-    <meta name="keywords" content="REMACS 9.0, REMACS, FSKM, UiTM Perlis, Fakulti Sains Komputer dan Matematik" />
+    <meta
+      name="description"
+      content="REMACS 9.0, Fakulti Sains Komputer dan Matematik, UiTM Cawangan Perlis"
+    />
+    <meta
+      name="keywords"
+      content="REMACS 9.0, REMACS, FSKM, UiTM Perlis, Fakulti Sains Komputer dan Matematik"
+    />
     <meta name="author" content="Rizauddin Saian" />
-    
-    <link rel="icon" href="https://fskmperlis.github.io/remacs/favicon.png" type="image/x-icon" />
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    <link
+      rel="icon"
+      href="https://fskmperlis.github.io/remacs/favicon.png"
+      type="image/x-icon"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --primary-color: #1e1b4b; /* Deep Indigo */
-            --secondary-color: #4338ca; /* Indigo */
-            --accent-color: #f59e0b; /* Amber/Gold */
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-main: #f8fafc;
-            --bg-card: #ffffff;
-            --radius: 8px;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --transition: all 0.3s ease;
-        }
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --primary-color: #1e1b4b; /* Deep Indigo */
+        --secondary-color: #4338ca; /* Indigo */
+        --accent-color: #f59e0b; /* Amber/Gold */
+        --text-main: #334155;
+        --text-light: #64748b;
+        --bg-main: #f8fafc;
+        --bg-card: #ffffff;
+        --radius: 8px;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --transition: all 0.3s ease;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-main);
-            line-height: 1.6;
-            overflow-x: hidden; /* Mencegah scroll melintang */
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        background-color: var(--bg-main);
+        line-height: 1.6;
+        overflow-x: hidden; /* Mencegah scroll melintang */
+      }
 
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--primary-color);
-        }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Poppins", sans-serif;
+        color: var(--primary-color);
+      }
 
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
+      a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
 
-        a:hover {
-            color: var(--accent-color);
-        }
+      a:hover {
+        color: var(--accent-color);
+      }
 
-        /* --- NAVIGATION --- */
-        .navbar {
-            background-color: var(--primary-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      /* --- NAVIGATION --- */
+      .navbar {
+        background-color: var(--primary-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .navbar-brand {
-            color: #fff;
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
-        }
+      .navbar-brand {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: "Poppins", sans-serif;
+      }
 
-        .navbar-brand span {
-            color: var(--accent-color);
+      .navbar-brand span {
+        color: var(--accent-color);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 0.5rem;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--accent-color);
+      }
+
+      /* Hamburger Menu Icon */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+        z-index: 1001; /* Pastikan ia berada di atas menu */
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        border-radius: 3px;
+        transition: var(--transition);
+      }
+
+      /* Animasi Hamburger ke 'X' */
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        color: white;
+        text-align: center;
+        padding: 6rem 2rem;
+      }
+
+      .hero h1 {
+        color: white;
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero h2 {
+        color: var(--accent-color);
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero p {
+        color: #e2e8f0;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+      }
+
+      .hero .tagline {
+        font-style: italic;
+        font-weight: 600;
+        font-size: 1.2rem;
+        background: rgba(255, 255, 255, 0.1);
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+      }
+
+      /* --- REMACS ARCHIVE LINKS --- */
+      .remacs-links {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .remacs-links > span:first-child {
+        color: #cbd5e1;
+        font-weight: 600;
+        margin-right: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .remacs-links a,
+      .remacs-links span:not(:first-child) {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: var(--transition);
+      }
+
+      .remacs-links a:hover {
+        background: var(--accent-color);
+        color: var(--primary-color);
+        border-color: var(--accent-color);
+      }
+
+      .remacs-links span:not(:first-child) {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .remacs-links a.active {
+        background: var(--accent-color);
+        color: var(--primary-color);
+        border-color: var(--accent-color);
+        font-weight: 700;
+        pointer-events: none;
+      }
+
+      /* --- MAIN CONTAINER --- */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 5%;
+      }
+
+      section {
+        margin-bottom: 5rem;
+      }
+
+      section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      section h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--accent-color);
+        border-radius: 2px;
+      }
+
+      /* --- EVENT INFO & POSTER --- */
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        background: var(--bg-card);
+        padding: 3rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        margin-top: -4rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      .info-details h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--secondary-color);
+      }
+
+      .info-item {
+        display: flex;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .info-item strong {
+        min-width: 100px;
+        color: var(--primary-color);
+      }
+
+      .info-image img {
+        width: 100%;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        object-fit: cover;
+      }
+
+      /* --- TIMELINE (ATURCARA) --- */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: var(--secondary-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+        border-radius: 2px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: var(--bg-card);
+        border: 4px solid var(--accent-color);
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .left {
+        left: 0;
+      }
+      .right {
+        left: 50%;
+      }
+      .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid var(--bg-card);
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent var(--bg-card);
+      }
+      .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid var(--bg-card);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--bg-card) transparent transparent;
+      }
+      .right::after {
+        left: -10px;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background-color: var(--bg-card);
+        position: relative;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .time-badge {
+        display: inline-block;
+        background: var(--primary-color);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .timeline-content ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      .timeline-content li {
+        margin-bottom: 5px;
+      }
+
+      /* --- COMMITTEE CARDS --- */
+      .committee-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .committee-card {
+        background: var(--bg-card);
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--secondary-color);
+        transition: var(--transition);
+      }
+
+      .committee-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      .committee-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .committee-card ul {
+        list-style: none;
+        color: var(--text-light);
+        font-size: 0.95rem;
+      }
+
+      .committee-card li {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .committee-card li:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .committee-card li span {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--secondary-color);
+        margin-top: 2px;
+      }
+
+      .committee-helper {
+        font-style: italic;
+        color: var(--accent-color);
+        font-size: 0.85rem;
+        margin-top: 10px;
+        display: block;
+      }
+
+      /* --- DOWNLOADS & LINKS --- */
+      .links-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .btn-link {
+        background: var(--bg-card);
+        border: 1px solid #e2e8f0;
+        padding: 1rem 2rem;
+        border-radius: var(--radius);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .btn-link:hover {
+        background: var(--secondary-color);
+        color: white;
+        border-color: var(--secondary-color);
+      }
+
+      /* --- ACCORDION (PEMENANG) --- */
+      .accordion {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .accordion-item {
+        background: var(--bg-card);
+        margin-bottom: 1rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .accordion-btn {
+        background-color: var(--bg-card);
+        color: var(--primary-color);
+        cursor: pointer;
+        padding: 1.5rem;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: var(--transition);
+        font-size: 1.1rem;
+        font-weight: 600;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .accordion-btn:hover,
+      .accordion-btn.active {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .accordion-btn::after {
+        content: "+";
+        font-size: 1.5rem;
+      }
+
+      .accordion-btn.active::after {
+        content: "-";
+      }
+
+      .accordion-content {
+        padding: 0 1.5rem;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .winner-category {
+        margin: 1.5rem 0;
+      }
+
+      .winner-category h4 {
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+      }
+
+      .winner-category ul {
+        list-style: none;
+      }
+      .winner-category li {
+        padding: 0.5rem 0;
+        display: flex;
+        gap: 10px;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background: var(--primary-color);
+        color: #cbd5e1;
+        padding: 4rem 5% 2rem 5%;
+        text-align: center;
+      }
+
+      .footer-content {
+        margin-bottom: 2rem;
+      }
+
+      .footer-content h3 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--accent-color);
+        color: var(--primary-color);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+      .back-to-top.show {
+        opacity: 0.8;
+        visibility: visible;
+        pointer-events: auto;
+      }
+      .back-to-top.show:hover {
+        opacity: 1;
+        transform: translateY(-3px);
+        color: var(--primary-color);
+      }
+
+      /* --- RESPONSIVE / MOBILE ADAPTATION --- */
+      @media screen and (max-width: 768px) {
+        /* Tunjukkan Hamburger, Ubah Navigasi */
+        .hamburger {
+          display: flex;
         }
 
         .nav-links {
-            display: flex;
-            gap: 1.5rem;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: var(--primary-color);
+          flex-direction: column;
+          align-items: center;
+          padding: 1.5rem 0;
+          gap: 1.5rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+          /* Sembunyikan dengan animasi leret (slide up) */
+          transform: translateY(-150%);
+          opacity: 0;
+          transition: all 0.3s ease-in-out;
+          z-index: -1;
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+          z-index: 999;
         }
 
         .nav-links a {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 0.5rem;
+          font-size: 1.1rem;
         }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--accent-color);
-        }
-
-        /* Hamburger Menu Icon */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            z-index: 1001; /* Pastikan ia berada di atas menu */
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-
-        /* Animasi Hamburger ke 'X' */
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            text-align: center;
-            padding: 6rem 2rem;
-        }
-
+        /* Ubahsaiz Tajuk */
         .hero h1 {
-            color: white;
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+          font-size: 2.5rem;
         }
-
         .hero h2 {
-            color: var(--accent-color);
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+          font-size: 1.2rem;
         }
-
-        .hero p {
-            color: #e2e8f0;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2rem auto;
-        }
-
-        .hero .tagline {
-            font-style: italic;
-            font-weight: 600;
-            font-size: 1.2rem;
-            background: rgba(255,255,255,0.1);
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-        }
-
-        /* --- REMACS ARCHIVE LINKS --- */
-        .remacs-links {
-            margin-top: 3rem;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .remacs-links > span:first-child {
-            color: #cbd5e1;
-            font-weight: 600;
-            margin-right: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .remacs-links a, .remacs-links span:not(:first-child) {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-        }
-        
-        .remacs-links a:hover {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            border-color: var(--accent-color);
-        }
-        
-        .remacs-links span:not(:first-child) {
-            opacity: 0.6;
-            cursor: not-allowed;
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        .remacs-links a.active {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            border-color: var(--accent-color);
-            font-weight: 700;
-            pointer-events: none;
-        }
-
-        /* --- MAIN CONTAINER --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 5%;
-        }
-
-        section {
-            margin-bottom: 5rem;
-        }
-
         section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 0.5rem;
+          font-size: 2rem;
         }
 
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        /* --- EVENT INFO & POSTER --- */
+        /* Kotak Info ke 1 lajur */
         .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            background: var(--bg-card);
-            padding: 3rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-top: -4rem;
-            position: relative;
-            z-index: 10;
+          grid-template-columns: 1fr;
+          margin-top: 2rem;
+          padding: 1.5rem;
         }
 
-        .info-details h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-        }
-
-        .info-item {
-            display: flex;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .info-item strong {
-            min-width: 100px;
-            color: var(--primary-color);
-        }
-
-        .info-image img {
-            width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            object-fit: cover;
-        }
-
-        /* --- TIMELINE (ATURCARA) --- */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
+        /* Betulkan Garis Masa (Timeline) untuk Mudah Alih */
         .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: var(--secondary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
+          left: 31px;
         }
-
         .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
         }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--bg-card);
-            border: 4px solid var(--accent-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
+        .timeline-item::before {
+          left: 60px;
+          border: medium solid var(--bg-card);
+          border-width: 10px 10px 10px 0;
+          border-color: transparent var(--bg-card) transparent transparent;
         }
-
-        .left { left: 0; }
-        .right { left: 50%; }
+        .left::after,
+        .right::after {
+          left: 21px;
+        }
+        .right {
+          left: 0%;
+        }
         .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid var(--bg-card);
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent var(--bg-card);
-        }
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid var(--bg-card);
-            border-width: 10px 10px 10px 0;
-            border-color: transparent var(--bg-card) transparent transparent;
-        }
-        .right::after { left: -10px; }
-
-        .timeline-content {
-            padding: 20px;
-            background-color: var(--bg-card);
-            position: relative;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+          right: auto;
+          left: 60px;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent var(--bg-card) transparent transparent;
         }
 
-        .time-badge {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .timeline-content ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .timeline-content li {
-            margin-bottom: 5px;
-        }
-
-        /* --- COMMITTEE CARDS --- */
+        /* Jawatankuasa Grid */
         .committee-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .committee-card {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--secondary-color);
-            transition: var(--transition);
-        }
-
-        .committee-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .committee-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .committee-card ul {
-            list-style: none;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-        
-        .committee-card li { 
-            margin-bottom: 0.5rem; 
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #f1f5f9;
-        }
-        
-        .committee-card li:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .committee-card li span {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--secondary-color);
-            margin-top: 2px;
-        }
-
-        .committee-helper {
-            font-style: italic;
-            color: var(--accent-color);
-            font-size: 0.85rem;
-            margin-top: 10px;
-            display: block;
-        }
-
-        /* --- DOWNLOADS & LINKS --- */
-        .links-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
+          grid-template-columns: 1fr;
         }
 
         .btn-link {
-            background: var(--bg-card);
-            border: 1px solid #e2e8f0;
-            padding: 1rem 2rem;
-            border-radius: var(--radius);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: var(--shadow);
-            text-align: center;
+          width: 100%;
+          justify-content: center;
         }
-
-        .btn-link:hover {
-            background: var(--secondary-color);
-            color: white;
-            border-color: var(--secondary-color);
-        }
-
-        /* --- ACCORDION (PEMENANG) --- */
-        .accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .accordion-item {
-            background: var(--bg-card);
-            margin-bottom: 1rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .accordion-btn {
-            background-color: var(--bg-card);
-            color: var(--primary-color);
-            cursor: pointer;
-            padding: 1.5rem;
-            width: 100%;
-            text-align: left;
-            border: none;
-            outline: none;
-            transition: var(--transition);
-            font-size: 1.1rem;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .accordion-btn:hover, .accordion-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .accordion-btn::after {
-            content: '+';
-            font-size: 1.5rem;
-        }
-
-        .accordion-btn.active::after {
-            content: '-';
-        }
-
-        .accordion-content {
-            padding: 0 1.5rem;
-            background-color: white;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .winner-category {
-            margin: 1.5rem 0;
-        }
-
-        .winner-category h4 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-        }
-        
-        .winner-category ul { list-style: none; }
-        .winner-category li {
-            padding: 0.5rem 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: var(--primary-color);
-            color: #cbd5e1;
-            padding: 4rem 5% 2rem 5%;
-            text-align: center;
-        }
-
-        .footer-content {
-            margin-bottom: 2rem;
-        }
-
-        .footer-content h3 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .copyright {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            font-size: 0.9rem;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--accent-color);
-            color: var(--primary-color);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-        .back-to-top.show {
-            opacity: 0.8;
-            visibility: visible;
-            pointer-events: auto;
-        }
-        .back-to-top.show:hover {
-            opacity: 1;
-            transform: translateY(-3px);
-            color: var(--primary-color);
-        }
-
-        /* --- RESPONSIVE / MOBILE ADAPTATION --- */
-        @media screen and (max-width: 768px) {
-            /* Tunjukkan Hamburger, Ubah Navigasi */
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-color);
-                flex-direction: column;
-                align-items: center;
-                padding: 1.5rem 0;
-                gap: 1.5rem;
-                box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-                
-                /* Sembunyikan dengan animasi leret (slide up) */
-                transform: translateY(-150%);
-                opacity: 0;
-                transition: all 0.3s ease-in-out;
-                z-index: -1; 
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                z-index: 999;
-            }
-
-            .nav-links a {
-                font-size: 1.1rem;
-            }
-
-            /* Ubahsaiz Tajuk */
-            .hero h1 { font-size: 2.5rem; }
-            .hero h2 { font-size: 1.2rem; }
-            section h2 { font-size: 2rem; }
-
-            /* Kotak Info ke 1 lajur */
-            .info-grid { 
-                grid-template-columns: 1fr; 
-                margin-top: 2rem; 
-                padding: 1.5rem;
-            }
-
-            /* Betulkan Garis Masa (Timeline) untuk Mudah Alih */
-            .timeline::after { left: 31px; }
-            .timeline-item { 
-                width: 100%; 
-                padding-left: 70px; 
-                padding-right: 25px; 
-            }
-            .timeline-item::before { 
-                left: 60px; 
-                border: medium solid var(--bg-card); 
-                border-width: 10px 10px 10px 0; 
-                border-color: transparent var(--bg-card) transparent transparent; 
-            }
-            .left::after, .right::after { left: 21px; }
-            .right { left: 0%; }
-            .left::before {
-                right: auto;
-                left: 60px;
-                border-width: 10px 10px 10px 0;
-                border-color: transparent var(--bg-card) transparent transparent;
-            }
-
-            /* Jawatankuasa Grid */
-            .committee-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .btn-link {
-                width: 100%;
-                justify-content: center;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body id="top">
-
+  <body id="top">
     <nav class="navbar">
-        <a href="#" class="navbar-brand">REMACS<span>9.0</span></a>
-        
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+      <a href="#" class="navbar-brand">REMACS<span>9.0</span></a>
 
-        <div class="nav-links" id="nav-links">
-            <a href="#info">Info</a>
-            <a href="#aturcara">Aturcara</a>
-            <a href="#jawatankuasa">Jawatankuasa</a>
-            <a href="#sumber">Sumber & Juri</a>
-            <a href="#susun-atur">Susun Atur</a>
-            <a href="#pemenang">Pemenang</a>
-            <a href="https://fskmperlis.uitm.edu.my/remacs-proceedings/" target="_blank">Proceedings</a>
-        </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#info">Info</a>
+        <a href="#aturcara">Aturcara</a>
+        <a href="#jawatankuasa">Jawatankuasa</a>
+        <a href="#sumber">Sumber & Juri</a>
+        <a href="#susun-atur">Susun Atur</a>
+        <a href="#pemenang">Pemenang</a>
+        <a
+          href="https://fskmperlis.uitm.edu.my/remacs-proceedings/"
+          target="_blank"
+          >Proceedings</a
+        >
+      </div>
     </nav>
 
     <header class="hero">
-        <h1>REMACS 9.0</h1>
-        <h2>Fakulti Sains Komputer dan Matematik</h2>
-        <p>Universiti Teknologi MARA, Cawangan Perlis</p>
-        <span class="tagline">"Research Beyond Boundaries"</span>
+      <h1>REMACS 9.0</h1>
+      <h2>Fakulti Sains Komputer dan Matematik</h2>
+      <p>Universiti Teknologi MARA, Cawangan Perlis</p>
+      <span class="tagline">"Research Beyond Boundaries"</span>
 
-        <div class="remacs-links">
-            <span>Arkib:</span>
-            <span>1.0</span>
-            <a href="/remacs/2/">2.0</a>
-            <span>3.0</span>
-            <a href="/remacs/4/">4.0</a>
-            <a href="/remacs/5/">5.0</a>
-            <a href="/remacs/6/">6.0</a>
-            <a href="/remacs/7/">7.0</a>
-            <a href="/remacs/8/">8.0</a>
-            <a href="/remacs/9/" class="active">9.0</a>
-        </div>
+      <div class="remacs-links">
+        <span>Arkib:</span>
+        <span>1.0</span>
+        <a href="/remacs/2/">2.0</a>
+        <span>3.0</span>
+        <a href="/remacs/4/">4.0</a>
+        <a href="/remacs/5/">5.0</a>
+        <a href="/remacs/6/">6.0</a>
+        <a href="/remacs/7/">7.0</a>
+        <a href="/remacs/8/">8.0</a>
+        <a href="/remacs/9/" class="active">9.0</a>
+      </div>
     </header>
 
     <main class="container">
-
-        <div id="info" class="info-grid">
-            <div class="info-details">
-                <h3>Maklumat Program</h3>
-                <div class="info-item">
-                    <strong>Tarikh:</strong> <span>16 Julai 2026, Khamis</span>
-                </div>
-                <div class="info-item">
-                    <strong>Masa:</strong> <span>8.00 pagi hingga 5.00 petang</span>
-                </div>
-                <div class="info-item">
-                    <strong>Tempat:</strong> <span>Dewan Seri Semarak, UiTM Cawangan Perlis, Kampus Arau</span>
-                </div>
-            </div>
-            <div class="info-image">
-                <img src="https://fskmperlis.github.io/remacs/9/remacs9.jpeg" alt="Poster REMACS 9.0" />
-            </div>
+      <div id="info" class="info-grid">
+        <div class="info-details">
+          <h3>Maklumat Program</h3>
+          <div class="info-item">
+            <strong>Tarikh:</strong> <span>16 Julai 2026, Khamis</span>
+          </div>
+          <div class="info-item">
+            <strong>Masa:</strong> <span>8.00 pagi hingga 5.00 petang</span>
+          </div>
+          <div class="info-item">
+            <strong>Tempat:</strong>
+            <span>Dewan Seri Semarak, UiTM Cawangan Perlis, Kampus Arau</span>
+          </div>
         </div>
+        <div class="info-image">
+          <img
+            src="https://fskmperlis.github.io/remacs/9/remacs9.jpeg"
+            alt="Poster REMACS 9.0"
+          />
+        </div>
+      </div>
 
-        <br><br><br>
+      <br /><br /><br />
 
-        <section id="aturcara">
-            <h2>Aturcara Majlis</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="time-badge">8.00 pagi - 8.30 pagi</span>
-                        <ul><li>Pendaftaran</li></ul>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="time-badge">8.30 pagi - 12.00 t/hari</span>
-                        <ul><li>Persembahan projek dan pembentangan poster</li></ul>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="time-badge">12.00 t/hari - 2.00 petang</span>
-                        <ul><li>Rehat dan solat</li></ul>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="time-badge">2.15 petang - 2.30 petang</span>
-                        <ul>
-                            <li>Majlis Perasmian Penutup</li>
-                            <li>Ucapan Pengarah REMACS 9.0</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="time-badge">2.30 petang - 3.00 petang</span>
-                        <ul>
-                            <li>Ucapan Perasmian Rektor UiTM Cawangan Perlis</li>
-                            <li>Tayangan Montaj REMACS 9.0</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="time-badge">3.00 petang - 4.00 petang</span>
-                        <ul><li>Alumni / Industry Talk</li></ul>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="time-badge">4.00 petang - 5.00 petang</span>
-                        <ul>
-                            <li>Majlis penyampaian hadiah</li>
-                            <li>Sesi fotografi</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="time-badge">5.00 petang</span>
-                        <ul><li>Majlis bersurai</li></ul>
-                    </div>
-                </div>
+      <section id="aturcara">
+        <h2>Aturcara Majlis</h2>
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <span class="time-badge">8.00 pagi - 8.30 pagi</span>
+              <ul>
+                <li>Pendaftaran</li>
+              </ul>
             </div>
-        </section>
-
-        <section id="jawatankuasa">
-            <h2>Jawatankuasa</h2>
-            <div class="committee-grid">
-                
-                <div class="committee-card">
-                    <h3>Penaung</h3>
-                    <ul>
-                        <li>Prof. Madya Dr. Ahmad Nizan Mat Noor <span>Rektor UiTM Cawangan Perlis</span></li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penasihat</h3>
-                    <ul>
-                        <li>Prof. Madya Dr. Azrul bin Abdullah <span>Timbalan Rektor HEA</span></li>
-                        <li>Dr. Nur Fatihah Fauzi <span>KPP FSKM</span></li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Pengarah Program</h3>
-                    <ul>
-                        <li>Dr. Nur Khairani Kamarudin</li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Timbalan Pengarah Program</h3>
-                    <ul>
-                        <li>Diana Sirmayunie Mohd Nasir</li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Setiausaha & Timb. Setiausaha</h3>
-                    <ul>
-                        <li>Norpah Mahat <span>Setiausaha</span></li>
-                        <li>Nurul Hidayah Ahmad Zukri <span>Timbalan Setiausaha</span></li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Bendahari</h3>
-                    <ul>
-                        <li>Sharifah Fhahriyah Syed Abas</li>
-                        <li>Mohd Nizam Osman</li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Laman Sesawang & Media Sosial</h3>
-                    <ul>
-                        <li>Prof. Madya Ts. Dr. Rizauddin Saian</li>
-                        <li>Ros Syamsul Hamid <span>(Video dan Montaj)</span></li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Pameran</h3>
-                    <ul>
-                        <li>Dr. Norfiza Ibrahim</li>
-                        <li>Ts. Dr Siti Zulaiha Ahmad</li>
-                        <li>Dr. Nadia Abdul Wahab</li>
-                        <li>Dr. Mahfudzah Othman</li>
-                        <li>Iman Hazwam Abd Halim</li>
-                        <li>Dr. Nur Fazliana Rahim</li>
-                        <li>Dr. Huda Zuhrah binti Ab Halim</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Pendaftaran</h3>
-                    <ul>
-                        <li>Siti Sarah Md Alias</li>
-                        <li>Nor Hayati Shafii</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Juri</h3>
-                    <ul>
-                        <li>Suzanawati Abu Hasan</li>
-                        <li>Dr. Nurul Atiqah Romli</li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Teknikal dan Logistik</h3>
-                    <ul>
-                        <li>Mohd Faris Mohd Fuzi</li>
-                        <li>Mohd Halimi Ab Hamid</li>
-                        <li>Mohd Hasbullah Mohd Razali</li>
-                        <li>Khairu Azlan Abd Aziz</li>
-                        <li>Azlan Abd Aziz</li>
-                        <li>Muhammad Nabil Fikri Jamaluddin</li>
-                        <li>Ts. Noorfaizalfarid Mohd Noor</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 6 pelajar</span>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Majlis Perasmian Penutup & Cenderahati</h3>
-                    <ul>
-                        <li>Romiza Md Nor</li>
-                        <li>Balkiah Mokhtar</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Sijil</h3>
-                    <ul>
-                        <li>Anas Fathul Ariffin</li>
-                        <li>Dr. Ahmad Yusri Dak</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Buku Program</h3>
-                    <ul>
-                        <li>Muhammad Hafiz Ismail</li>
-                        <li>Nor Arzami Othman</li>
-                        <li>Ray Adderley Jm. Gining</li>
-                        <li>Izleen Ibrahim</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 4 AJK pelajar</span>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Jamuan</h3>
-                    <ul>
-                        <li>Nora Yanti Che Jan</li>
-                        <li>Ku Azlina Ku Akil</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 4 AJK pelajar</span>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Penajaan</h3>
-                    <ul>
-                        <li>Abdul Hapes Mohammed</li>
-                        <li>Alif Faisal Ibrahim</li>
-                    </ul>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Jemputan Industri/Luar</h3>
-                    <ul>
-                        <li>Naemah Abdul Wahab</li>
-                        <li>Raihana Zainordin</li>
-                        <li>Mohamad Najib Mohamad Fadzil</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
-                </div>
-
-                <div class="committee-card">
-                    <h3>Penyelaras Rekabentuk Digital</h3>
-                    <ul>
-                        <li>Muhammad Arif Hashim</li>
-                    </ul>
-                    <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
-                </div>
-
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <span class="time-badge">8.30 pagi - 12.00 t/hari</span>
+              <ul>
+                <li>Persembahan projek dan pembentangan poster</li>
+              </ul>
             </div>
-        </section>
-
-        <section id="sumber">
-            <h2>Muat Turun & Pautan Juri</h2>
-            <div class="links-grid">
-                <a href="https://fskmperlis.github.io/remacs/9/remacs9.jpeg" target="_blank" class="btn-link">📁 Poster</a>
-                <a href="https://docs.google.com/document/d/1AMzE77ENGsULtd3u1nZglr01Kvv3O5Kn/edit" target="_blank" class="btn-link">📄 Templat Abstrak</a>
-                <!-- <a href="#" class="btn-link">📋 Borang Juri Matematik</a> -->
-                <!-- <a href="#" class="btn-link">💻 Borang Juri Sains Komputer</a> -->
-                <a href="https://forms.gle/bSrbaM4UmHxZUM1fA" target="_blank" class="btn-link">🏢 Borang Juri Luar</a>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <span class="time-badge">12.00 t/hari - 2.00 petang</span>
+              <ul>
+                <li>Rehat dan solat</li>
+              </ul>
             </div>
-        </section>
-
-        <section id="susun-atur">
-            <h2>Susun Atur Dewan</h2>
-            <div style="text-align:center;">
-                <img src="https://fskmperlis.github.io/remacs/9/remacs9layout.jpg" alt="Susun atur REMACS 9.0" style="max-width:100%; border-radius: var(--radius); box-shadow: var(--shadow);"/>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <span class="time-badge">2.15 petang - 2.30 petang</span>
+              <ul>
+                <li>Majlis Perasmian Penutup</li>
+                <li>Ucapan Pengarah REMACS 9.0</li>
+              </ul>
             </div>
-        </section>
-
-        <section id="pemenang">
-            <h2>Senarai Pemenang</h2>
-            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light);">
-                Maklumat pemenang akan dikemaskini selepas acara berlangsung.
-            </p>
-
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-btn">🏆 Poster Terbaik</button>
-                    <div class="accordion-content">
-                        <div class="winner-category">
-                            <h4>CDCS240 Creative IT</h4>
-                            <ul>
-                                <li>🥇 Tempat Pertama: </li>
-                                <li>🥈 Tempat Kedua: </li>
-                                <li>🥉 Tempat Ketiga: </li>
-                            </ul>
-                        </div>
-                        <div class="winner-category">
-                            <h4>CDCS240 Big Data</h4>
-                            <ul>
-                                <li>🥇 Tempat Pertama: </li>
-                                <li>🥈 Tempat Kedua: </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-btn">🎥 Video Pitching Terbaik</button>
-                    <div class="accordion-content">
-                        <div class="winner-category">
-                            <h4>Semua Program (CDCS240, CDCS248, CDCS251, CDCS255)</h4>
-                            <ul>
-                                <li>🥇 Tempat Pertama: </li>
-                                <li>🥈 Tempat Kedua: </li>
-                                <li>🥉 Tempat Ketiga: </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-btn">💡 Projek Terbaik & Anugerah Khas</button>
-                    <div class="accordion-content">
-                        <div class="winner-category">
-                            <h4>Projek Terbaik Setiap Program</h4>
-                            <ul>
-                                <li>🥇 Tempat Pertama: </li>
-                            </ul>
-                        </div>
-                        <div class="winner-category">
-                            <h4>Piala Pusingan Rektor (Projek Keseluruhan Terbaik)</h4>
-                            <ul>
-                                <li><strong>Tajuk FYP:</strong> </li>
-                                <li><strong>Pelajar:</strong> </li>
-                                <li><strong>Penyelia:</strong> </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <span class="time-badge">2.30 petang - 3.00 petang</span>
+              <ul>
+                <li>Ucapan Perasmian Rektor UiTM Cawangan Perlis</li>
+                <li>Tayangan Montaj REMACS 9.0</li>
+              </ul>
             </div>
-        </section>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <span class="time-badge">3.00 petang - 4.00 petang</span>
+              <ul>
+                <li>Alumni / Industry Talk</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <span class="time-badge">4.00 petang - 5.00 petang</span>
+              <ul>
+                <li>Majlis penyampaian hadiah</li>
+                <li>Sesi fotografi</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <span class="time-badge">5.00 petang</span>
+              <ul>
+                <li>Majlis bersurai</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <section id="jawatankuasa">
+        <h2>Jawatankuasa</h2>
+        <div class="committee-grid">
+          <div class="committee-card">
+            <h3>Penaung</h3>
+            <ul>
+              <li>
+                Prof. Madya Dr. Ahmad Nizan Mat Noor
+                <span>Rektor UiTM Cawangan Perlis</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penasihat</h3>
+            <ul>
+              <li>
+                Prof. Madya Dr. Azrul bin Abdullah
+                <span>Timbalan Rektor HEA</span>
+              </li>
+              <li>Dr. Nur Fatihah Fauzi <span>KPP FSKM</span></li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Pengarah Program</h3>
+            <ul>
+              <li>Dr. Nur Khairani Kamarudin</li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Timbalan Pengarah Program</h3>
+            <ul>
+              <li>Diana Sirmayunie Mohd Nasir</li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Setiausaha & Timb. Setiausaha</h3>
+            <ul>
+              <li>Norpah Mahat <span>Setiausaha</span></li>
+              <li>
+                Nurul Hidayah Ahmad Zukri <span>Timbalan Setiausaha</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Bendahari</h3>
+            <ul>
+              <li>Sharifah Fhahriyah Syed Abas</li>
+              <li>Mohd Nizam Osman</li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Laman Sesawang & Media Sosial</h3>
+            <ul>
+              <li>Prof. Madya Ts. Dr. Rizauddin Saian</li>
+              <li>Ros Syamsul Hamid <span>(Video dan Montaj)</span></li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Pameran</h3>
+            <ul>
+              <li>Dr. Norfiza Ibrahim</li>
+              <li>Ts. Dr Siti Zulaiha Ahmad</li>
+              <li>Dr. Nadia Abdul Wahab</li>
+              <li>Dr. Mahfudzah Othman</li>
+              <li>Iman Hazwam Abd Halim</li>
+              <li>Dr. Nur Fazliana Rahim</li>
+              <li>Dr. Huda Zuhrah binti Ab Halim</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Pendaftaran</h3>
+            <ul>
+              <li>Siti Sarah Md Alias</li>
+              <li>Nor Hayati Shafii</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Juri</h3>
+            <ul>
+              <li>Suzanawati Abu Hasan</li>
+              <li>Dr. Nurul Atiqah Romli</li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Teknikal dan Logistik</h3>
+            <ul>
+              <li>Mohd Faris Mohd Fuzi</li>
+              <li>Mohd Halimi Ab Hamid</li>
+              <li>Mohd Hasbullah Mohd Razali</li>
+              <li>Khairu Azlan Abd Aziz</li>
+              <li>Azlan Abd Aziz</li>
+              <li>Muhammad Nabil Fikri Jamaluddin</li>
+              <li>Ts. Noorfaizalfarid Mohd Noor</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 6 pelajar</span>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Majlis Perasmian Penutup & Cenderahati</h3>
+            <ul>
+              <li>Romiza Md Nor</li>
+              <li>Balkiah Mokhtar</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 6 AJK pelajar</span>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Sijil</h3>
+            <ul>
+              <li>Anas Fathul Ariffin</li>
+              <li>Dr. Ahmad Yusri Dak</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Buku Program</h3>
+            <ul>
+              <li>Muhammad Hafiz Ismail</li>
+              <li>Nor Arzami Othman</li>
+              <li>Ray Adderley Jm. Gining</li>
+              <li>Izleen Ibrahim</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 4 AJK pelajar</span>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Jamuan</h3>
+            <ul>
+              <li>Nora Yanti Che Jan</li>
+              <li>Ku Azlina Ku Akil</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 4 AJK pelajar</span>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Penajaan</h3>
+            <ul>
+              <li>Abdul Hapes Mohammed</li>
+              <li>Alif Faisal Ibrahim</li>
+            </ul>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Jemputan Industri/Luar</h3>
+            <ul>
+              <li>Naemah Abdul Wahab</li>
+              <li>Raihana Zainordin</li>
+              <li>Mohamad Najib Mohamad Fadzil</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
+          </div>
+
+          <div class="committee-card">
+            <h3>Penyelaras Rekabentuk Digital</h3>
+            <ul>
+              <li>Muhammad Arif Hashim</li>
+            </ul>
+            <span class="committee-helper">* Dibantu oleh 2 AJK pelajar</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="sumber">
+        <h2>Muat Turun & Pautan Juri</h2>
+        <div class="links-grid">
+          <a
+            href="https://fskmperlis.github.io/remacs/9/remacs9.jpeg"
+            target="_blank"
+            class="btn-link"
+            >📁 Poster</a
+          >
+          <a
+            href="https://drive.google.com/file/d/15WMFDZS6VCBojKr602lQYzAu3sLv4s7Q/view?usp=sharing"
+            target="_blank"
+            class="btn-link"
+            >📁 Buku Program</a
+          >
+          <a
+            href="https://drive.google.com/file/d/11ycvYhLlpqNHlvLxbtTSKjxVtWo8XWkP/view?usp=sharing"
+            target="_blank"
+            class="btn-link"
+            >📁 Brosur</a
+          >
+          <a
+            href="https://docs.google.com/document/d/1AMzE77ENGsULtd3u1nZglr01Kvv3O5Kn/edit"
+            target="_blank"
+            class="btn-link"
+            >📄 Templat Abstrak</a
+          >
+          <!-- <a href="#" class="btn-link">📋 Borang Juri Matematik</a> -->
+          <!-- <a href="#" class="btn-link">💻 Borang Juri Sains Komputer</a> -->
+          <a
+            href="https://forms.gle/bSrbaM4UmHxZUM1fA"
+            target="_blank"
+            class="btn-link"
+            >🏢 Borang Juri Luar</a
+          >
+        </div>
+      </section>
+
+      <section id="susun-atur">
+        <h2>Susun Atur Dewan</h2>
+        <div style="text-align: center">
+          <img
+            src="https://fskmperlis.github.io/remacs/9/remacs9layout.jpg"
+            alt="Susun atur REMACS 9.0"
+            style="
+              max-width: 100%;
+              border-radius: var(--radius);
+              box-shadow: var(--shadow);
+            "
+          />
+        </div>
+      </section>
+
+      <section id="pemenang">
+        <h2>Senarai Pemenang</h2>
+        <p
+          style="
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+          "
+        >
+          Maklumat pemenang akan dikemaskini selepas acara berlangsung.
+        </p>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-btn">🏆 Poster Terbaik</button>
+            <div class="accordion-content">
+              <div class="winner-category">
+                <h4>CDCS240 Creative IT</h4>
+                <ul>
+                  <li>🥇 Tempat Pertama:</li>
+                  <li>🥈 Tempat Kedua:</li>
+                  <li>🥉 Tempat Ketiga:</li>
+                </ul>
+              </div>
+              <div class="winner-category">
+                <h4>CDCS240 Big Data</h4>
+                <ul>
+                  <li>🥇 Tempat Pertama:</li>
+                  <li>🥈 Tempat Kedua:</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-btn">🎥 Video Pitching Terbaik</button>
+            <div class="accordion-content">
+              <div class="winner-category">
+                <h4>Semua Program (CDCS240, CDCS248, CDCS251, CDCS255)</h4>
+                <ul>
+                  <li>🥇 Tempat Pertama:</li>
+                  <li>🥈 Tempat Kedua:</li>
+                  <li>🥉 Tempat Ketiga:</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-btn">
+              💡 Projek Terbaik & Anugerah Khas
+            </button>
+            <div class="accordion-content">
+              <div class="winner-category">
+                <h4>Projek Terbaik Setiap Program</h4>
+                <ul>
+                  <li>🥇 Tempat Pertama:</li>
+                </ul>
+              </div>
+              <div class="winner-category">
+                <h4>Piala Pusingan Rektor (Projek Keseluruhan Terbaik)</h4>
+                <ul>
+                  <li><strong>Tajuk FYP:</strong></li>
+                  <li><strong>Pelajar:</strong></li>
+                  <li><strong>Penyelia:</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <a href="#top" class="back-to-top" title="Kembali ke atas">↑</a>
 
     <footer>
-        <div class="footer-content">
-            <h3>Hubungi Kami</h3>
-            <p>
-                Fakulti Sains Komputer dan Matematik,<br />
-                Universiti Teknologi MARA<br />
-                Cawangan Perlis, Kampus Arau<br />
-                02600 Arau, Perlis, Malaysia
-            </p>
-            <p style="margin-top: 1rem;">Tel: +604 988 2487 / 2502 / 2506</p>
-        </div>
-        <div class="copyright">
-            Copyright &copy; 2026 FSKM, UiTM Cawangan Perlis. All Rights Reserved.
-        </div>
+      <div class="footer-content">
+        <h3>Hubungi Kami</h3>
+        <p>
+          Fakulti Sains Komputer dan Matematik,<br />
+          Universiti Teknologi MARA<br />
+          Cawangan Perlis, Kampus Arau<br />
+          02600 Arau, Perlis, Malaysia
+        </p>
+        <p style="margin-top: 1rem">Tel: +604 988 2487 / 2502 / 2506</p>
+      </div>
+      <div class="copyright">
+        Copyright &copy; 2026 FSKM, UiTM Cawangan Perlis. All Rights Reserved.
+      </div>
     </footer>
 
     <script>
-        // Hamburger Menu functionality
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+      // Hamburger Menu functionality
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
 
-        // Close menu when clicking a link (mobile)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
 
-        // Accordion functionality
-        const accordions = document.querySelectorAll('.accordion-btn');
-        
-        accordions.forEach(acc => {
-            acc.addEventListener('click', function() {
-                this.classList.toggle('active');
-                const panel = this.nextElementSibling;
-                
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                    panel.style.padding = "0 1.5rem";
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + 40 + "px"; // added extra space for padding
-                    panel.style.padding = "1rem 1.5rem";
-                }
-            });
+      // Close menu when clicking a link (mobile)
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
         });
+      });
 
-        // Back to Top functionality
-        const backToTopBtn = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
+      // Accordion functionality
+      const accordions = document.querySelectorAll(".accordion-btn");
+
+      accordions.forEach((acc) => {
+        acc.addEventListener("click", function () {
+          this.classList.toggle("active");
+          const panel = this.nextElementSibling;
+
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+            panel.style.padding = "0 1.5rem";
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + 40 + "px"; // added extra space for padding
+            panel.style.padding = "1rem 1.5rem";
+          }
         });
+      });
+
+      // Back to Top functionality
+      const backToTopBtn = document.querySelector(".back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add("show");
+        } else {
+          backToTopBtn.classList.remove("show");
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
