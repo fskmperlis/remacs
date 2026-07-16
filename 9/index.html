@@ -192,7 +192,7 @@
       /* --- REMACS ARCHIVE LINKS --- */
       .remacs-links {
         margin-top: 3rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -246,7 +246,8 @@
         display: flex;
         justify-content: center;
         gap: 1rem;
-        margin-top: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
       }
 
       .social-icon {
@@ -607,10 +608,36 @@
       .winner-category ul {
         list-style: none;
       }
+      
       .winner-category li {
-        padding: 0.5rem 0;
-        display: flex;
-        gap: 10px;
+        padding: 0.75rem 0;
+        display: block;
+        border-bottom: 1px dashed #e2e8f0;
+      }
+
+      .winner-category li:last-child {
+        border-bottom: none;
+      }
+      
+      .winner-category li strong {
+        color: var(--primary-color);
+      }
+      
+      .winner-project-title {
+        display: block;
+        font-size: 0.9em;
+        color: var(--text-light);
+        margin-top: 4px;
+        padding-left: 1.8rem; /* Aligning with the text after medal emoji */
+      }
+
+      .winner-supervisor {
+        display: block;
+        font-size: 0.85em;
+        color: var(--secondary-color);
+        margin-top: 2px;
+        padding-left: 1.8rem;
+        font-weight: 500;
       }
 
       /* --- FOOTER --- */
@@ -808,6 +835,7 @@
         <a href="/remacs/9/" class="active">9.0</a>
       </div>
 
+      <!-- PAUTAN MEDIA SOSIAL (TIKTOK & FACEBOOK) -->
       <div class="social-hero-links">
         <a href="https://www.tiktok.com/@fskmuitmperlis" target="_blank" class="social-icon tiktok" title="TikTok FSKM UiTM Perlis">
           <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -820,6 +848,7 @@
           </svg>
         </a>
       </div>
+
     </header>
 
     <main class="container">
@@ -1157,26 +1186,96 @@
             color: var(--text-light);
           "
         >
-          Maklumat pemenang akan dikemaskini selepas acara berlangsung.
+          Maklumat pemenang dikemaskini dari keputusan akhir.
         </p>
 
         <div class="accordion">
+          
           <div class="accordion-item">
             <button class="accordion-btn">🏆 Poster Terbaik</button>
             <div class="accordion-content">
+              
               <div class="winner-category">
                 <h4>CDCS240 Creative IT</h4>
                 <ul>
-                  <li>🥇 Tempat Pertama:</li>
-                  <li>🥈 Tempat Kedua:</li>
-                  <li>🥉 Tempat Ketiga:</li>
+                  <li>
+                    🥇 Pertama: <strong>Nik Mohammad Syahir Bin Mohd Kamal</strong>
+                    <span class="winner-project-title">HireMatch: An Intelligent Web-Based Job Recommendation Portal for Malaysians Using Natural Language Processing and Machine Learning Techniques</span>
+                    <span class="winner-supervisor">Penyelia: En. Muhammad Nabil Fikri bin Jamaluddin</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Nur Sarah Nafisa Binti Muhammad Sharbani</strong>
+                    <span class="winner-project-title">eComplaint@Campus: Web-Based Residential College Complaint Management System with Analytical Dashboard</span>
+                    <span class="winner-supervisor">Penyelia: Ts. Dr. Norziana Yahya</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Solehah Najiha Binti Sahidi</strong>
+                    <span class="winner-project-title">LeadTrack: Leadership Development Mobile Application Using Adapted MRPI and SLPI Frameworks</span>
+                    <span class="winner-supervisor">Penyelia: Pn. Romiza binti Md Nor</span>
+                  </li>
                 </ul>
               </div>
+
               <div class="winner-category">
                 <h4>CDCS240 Big Data</h4>
                 <ul>
-                  <li>🥇 Tempat Pertama:</li>
-                  <li>🥈 Tempat Kedua:</li>
+                  <li>
+                    🥇 Pertama: <strong>Zukhruful Khadjiah Amni Binti Jamnul Azhar</strong>
+                    <span class="winner-project-title">Big Data Analytic on Monitoring and Predicting Student Mental Health Among Malaysian Universities</span>
+                    <span class="winner-supervisor">Penyelia: Nor Arzami bin Othman</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Nurin Adlina Binti Zal Wafaizulzlan</strong>
+                    <span class="winner-project-title">Operational Efficiency and Fault Prediction with Model Interpretation Using Explainable AI in Intelligent Manufacturing</span>
+                    <span class="winner-supervisor">Penyelia: Ray Adderley JM Gining</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Siti Nur Hidayah Binti Rozadi</strong>
+                    <span class="winner-project-title">Crop Yield Prediction Using Machine Learning and Explainable AI</span>
+                    <span class="winner-supervisor">Penyelia: Prof. Madya Dr. Shukor Sanim Mohd Fauzi</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="winner-category">
+                <h4>CDCS251 Computer Science</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Wan Fatin Aisyah Binti Wan Abd Malik</strong>
+                    <span class="winner-project-title">Phishing URL Classification and Feature Analysis Using Machine Learning Techniques</span>
+                    <span class="winner-supervisor">Penyelia: Dr. Nur Khairani Kamaruddin</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Nureen Atiqah Aleeya Binti Izdamunir</strong>
+                    <span class="winner-project-title">Learn2Feel: Emotion Learning Mobile Application for Autistic Children (Using Gamification Element)</span>
+                    <span class="winner-supervisor">Penyelia: Nurzaid Muhd Zain</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Siti Nur Ashikin Binti Mohd Sopian</strong>
+                    <span class="winner-project-title">UniStorage+: A Mobile Application for Parcel Tracking and Collection Management for UiTM Students</span>
+                    <span class="winner-supervisor">Penyelia: Nurzaid Muhd Zain</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="winner-category">
+                <h4>CDCS255 Computer Network</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Nur Hanisah Binti Azhari</strong>
+                    <span class="winner-project-title">AI-Assisted for Distributed Denial-of-Service (DDoS) Attack Detection and Mitigation Using Suricata with Automated Messaging</span>
+                    <span class="winner-supervisor">Penyelia: Muhamad Arif bin Hashim</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Muhammad Alif Hakimi Bin Mohd Ali</strong>
+                    <span class="winner-project-title">IoT Network Monitoring and Parental Traffic Filtering System with Telegram Notification</span>
+                    <span class="winner-supervisor">Penyelia: Ros Syamsul bin Hamid</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Nur Athirah Binti Mohamad Rosidi</strong>
+                    <span class="winner-project-title">Data Exfiltration Detection Based on Network Layer Analysis Using Eve-NG</span>
+                    <span class="winner-supervisor">Penyelia: Muhamad Arif bin Hashim</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -1185,14 +1284,91 @@
           <div class="accordion-item">
             <button class="accordion-btn">🎥 Video Pitching Terbaik</button>
             <div class="accordion-content">
+              
               <div class="winner-category">
-                <h4>Semua Program (CDCS240, CDCS248, CDCS251, CDCS255)</h4>
+                <h4>CDCS240 Creative IT</h4>
                 <ul>
-                  <li>🥇 Tempat Pertama:</li>
-                  <li>🥈 Tempat Kedua:</li>
-                  <li>🥉 Tempat Ketiga:</li>
+                  <li>
+                    🥇 Pertama: <strong>Nur Syafika Fazliana Binti Fazlan</strong>
+                    <span class="winner-project-title">MyOutfitique: Web-Based Personalized Outfit Recommendation System</span>
+                    <span class="winner-supervisor">Penyelia: Pn. Naemah binti Abdul Wahab</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Muhammad Aiman Hakim Bin Mohd Basri</strong>
+                    <span class="winner-project-title">Mobile Health Management App with Queue Registration and Medication Reminder</span>
+                    <span class="winner-supervisor">Penyelia: En. Muhammad Nabil Fikri bin Jamaluddin</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Megat Farhan Bin Megat Muzafar</strong>
+                    <span class="winner-project-title">DuitVisor: An AI-Powered Mobile Financial Advisor App for Malaysian Students</span>
+                    <span class="winner-supervisor">Penyelia: Dr. Nadia Binti Abdul Wahab</span>
+                  </li>
                 </ul>
               </div>
+
+              <div class="winner-category">
+                <h4>CDCS240 Big Data</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Nurulain Afiqah Binti Rameli</strong>
+                    <span class="winner-project-title">Data-Driven Visualization of Global Video Game Sales: Insights for Malaysia's Gaming Market</span>
+                    <span class="winner-supervisor">Penyelia: Dr. Aznoora Binti Osman</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Muhammad Nur Imran Bin Roslan</strong>
+                    <span class="winner-project-title">From Clicks to Trips: A Big Data and Sentiment Analysis Approach to Tourism Trends in Malaysia</span>
+                    <span class="winner-supervisor">Penyelia: Nor Arzami bin Othman</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Muhammad Ezzra Bin Rozaini</strong>
+                    <span class="winner-project-title">Big Data Analytics and Visualization for Predicting Crude Palm Oil Price Influenced by External Markets and Environmental Factors</span>
+                    <span class="winner-supervisor">Penyelia: Mohd Nizam bin Osman</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="winner-category">
+                <h4>CDCS251 Computer Science</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Nur Adriana Syahmina Binti Azhar</strong>
+                    <span class="winner-project-title">CampusFix: A Mobile-Based Facility Damaged Reporting Application</span>
+                    <span class="winner-supervisor">Penyelia: Nurzaid bin Muhd Zain</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Nur Fatnin Insyirah Binti Mohd Nazri</strong>
+                    <span class="winner-project-title">Web-Based System for Student Academic Syllabus Activity Application</span>
+                    <span class="winner-supervisor">Penyelia: Abdul Hapes bin Mohammed</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Nur Ain Najwa Binti Rajis Kana</strong>
+                    <span class="winner-project-title">UMART: A Smart E-Marketplace Mobile Application for UiTM Students</span>
+                    <span class="winner-supervisor">Penyelia: Mohammad Hafiz bin Ismail</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="winner-category">
+                <h4>CDCS255 Computer Network</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Nur Sarah Hanini Binti Mohamad Nasir</strong>
+                    <span class="winner-project-title">Implementation of Honeypot (Cowrie) for Detection of SSH Brute-Force Attacks</span>
+                    <span class="winner-supervisor">Penyelia: Mohd Faris bin Mohd Fuzi</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Nurul Zulaikha Binti Abdul Harith Mustaffa</strong>
+                    <span class="winner-project-title">Analysis of Wireless Packet Forwarding Detector (WPFD) for Evil Twin Tech</span>
+                    <span class="winner-supervisor">Penyelia: Dr. Nur Khairani Binti Kamarudin</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Zukran Aniq Bin Munir</strong>
+                    <span class="winner-project-title">CTFCreator: Capture The Flag Challenge Creator with Solver Bot</span>
+                    <span class="winner-supervisor">Penyelia: Muhamad Arif bin Hashim</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
           </div>
 
@@ -1201,20 +1377,111 @@
               💡 Projek Terbaik & Anugerah Khas
             </button>
             <div class="accordion-content">
-              <div class="winner-category">
-                <h4>Projek Terbaik Setiap Program</h4>
-                <ul>
-                  <li>🥇 Tempat Pertama:</li>
-                </ul>
-              </div>
+              
               <div class="winner-category">
                 <h4>Piala Pusingan Rektor (Projek Keseluruhan Terbaik)</h4>
-                <ul>
-                  <li><strong>Tajuk FYP:</strong></li>
-                  <li><strong>Pelajar:</strong></li>
-                  <li><strong>Penyelia:</strong></li>
+                <ul style="border-left: 4px solid var(--accent-color); padding-left: 1rem; margin-bottom: 2rem; background: var(--bg-main); padding: 1rem;">
+                  <li><strong>Pelajar:</strong> Siti Nuralia Natashya binti Hamdan</li>
+                  <li><strong>Tajuk FYP:</strong> GLAM-AR: An Intelligent Interactive Virtual Makeup Application with Augmented Reality</li>
+                  <li><strong>Penyelia:</strong> Dr. Nurtihah binti Mohamed Noor</li>
                 </ul>
               </div>
+
+              <div class="winner-category">
+                <h4>CDCS240 Creative IT</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Muhammad Irfan Kasyfi bin Rahim</strong>
+                    <span class="winner-project-title">Arau Rental House and Housemate Finder for University Students</span>
+                    <span class="winner-supervisor">Penyelia: En. Mohammad Hafiz bin Ismail</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Wan Nur Zuhairah binti Wan Nazidi</strong>
+                    <span class="winner-project-title">UniMatch: Smart Mobile Application for Part-Time In Campus Job Matching with QR-Code Attendance Tracking</span>
+                    <span class="winner-supervisor">Penyelia: Ts. Dr. Siti Zulailha binti Ahmad</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Nur Syakirah binti Mohd Nayan</strong>
+                    <span class="winner-project-title">AgroScale: Automatic Price Calculation Scanner Using IoT Object Detection</span>
+                    <span class="winner-supervisor">Penyelia: Dr. Khairul Anwar bin Sedek</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="winner-category">
+                <h4>CDCS240 Big Data</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Nur Aliah Izzati binti Borhanudin</strong>
+                    <span class="winner-project-title">Paddy Leaf Diseases Classification and Remedial Action Suggestion Using Image Analytics</span>
+                    <span class="winner-supervisor">Penyelia: Ray Adderley JM Gining</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Khairul Aniq bin Mustakim</strong>
+                    <span class="winner-project-title">Smart Dashboard for Student Decision Aid: Big Data Insights and Sentiment Analysis on Amenities Surrounding Public Universities</span>
+                    <span class="winner-supervisor">Penyelia: Dr. Norfiza binti Ibrahim</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Muhammad Azib bin Azar</strong>
+                    <span class="winner-project-title">Analyzing Klang Valley's Residential Property Values from Nearby Infrastructures and Economic Activities</span>
+                    <span class="winner-supervisor">Penyelia: Mohd Nizam bin Osman</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="winner-category">
+                <h4>CDCS248 Management Mathematics</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Mohammad Huzaini bin Mohd Hussain</strong>
+                    <span class="winner-project-title">Factors Influencing Purchasing Intentions Toward Health and Medical Insurance in Malaysia Using Fuzzy Delphi Method</span>
+                    <span class="winner-supervisor">Penyelia: Anas bin Fathul Arrifin</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="winner-category">
+                <h4>CDCS251 Computer Science</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Muhammad Ezral Hakimi bin Zulkifly</strong>
+                    <span class="winner-project-title">SleepGuard: IoT-Based Driver Drowsiness Detection Using Machine Learning</span>
+                    <span class="winner-supervisor">Penyelia: Iman Hazwan bin Abd Halim</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Intan Syafiqah binti Shamsul Anuar</strong>
+                    <span class="winner-project-title">Web-Based College Application and Room Selection Using Fuzzy Logic</span>
+                    <span class="winner-supervisor">Penyelia: Dr. Zulfikri bin Pajdi</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Adib Daniel bin Mohd Dahalan</strong>
+                    <span class="winner-project-title">AquaPulse: IoT-Based Water Quality Monitoring and Fish Care Assistant Application for Small-Scale Aquatic Systems</span>
+                    <span class="winner-supervisor">Penyelia: Dr. Umi Hanim binti Mazlan</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="winner-category">
+                <h4>CDCS255 Computer Network</h4>
+                <ul>
+                  <li>
+                    🥇 Pertama: <strong>Muhammad Hafiz bin Ramli</strong>
+                    <span class="winner-project-title">SecureMyFarm: Artificial Intelligence of Things (AIoT) Prototype to Prevent Wild Monkeys and Trespassers in Agricultural Areas</span>
+                    <span class="winner-supervisor">Penyelia: Rashidah binti Ramli</span>
+                  </li>
+                  <li>
+                    🥈 Kedua: <strong>Siti Khadijah binti Ayob</strong>
+                    <span class="winner-project-title">Meow Wave: Artificial Intelligence of Things (AIoT) for Cat Shelter Monitoring and Threat Detection</span>
+                    <span class="winner-supervisor">Penyelia: Rashidah binti Ramli</span>
+                  </li>
+                  <li>
+                    🥉 Ketiga: <strong>Muhammad Hanif Naim bin Mohd Hazrol</strong>
+                    <span class="winner-project-title">Utilizing ESP32 Sensing and LoRa Communication for Enhanced User-Defined Consumption Control</span>
+                    <span class="winner-supervisor">Penyelia: Ros Syamsul bin Hamid</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>
